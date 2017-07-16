@@ -1,0 +1,42 @@
+.videos{
+  .videoWrapper, .adLong{
+    position: relative;
+    float: left;
+  }
+  .videoWrapper{
+    width:80%;
+    padding: 10px;
+    h2{
+      padding:2%;
+      text-align: center;
+    }
+    .videoList{
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      padding: 10px 0;
+      .videoContainer{
+        width: 320px;
+        float: left;
+      }
+      .videoDescription{
+        width: calc( 100% - 320px);
+        float: left;
+        padding: 20px 2%;
+        h3{
+          margin-bottom: 5%;
+        }
+        p{
+          line-height: 2;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .adLong{
+    width:20%;
+    background: rgba(240,0,30,0.25);
+    height: 800px;
+  }
+
+}

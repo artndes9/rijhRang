@@ -1,0 +1,29 @@
+{
+  "playlist": [
+    {
+      "name": "Shape of you",
+      "src": "/mp/1.mp3",
+      "img": "http://oss.tan8.com/yuepuku/100/50357/50357_prev.jpg?v=1487820191"
+    },
+    {
+      "name": "Rise",
+      "src": "/mp/2.mp3",
+      "img": "http://img4.imgtn.bdimg.com/it/u=88801519,1533084710&fm=214&gp=0.jpg"
+    },
+    {
+      "name": "R2ise",
+      "src": "/mp/3.mp3",
+      "img": "http://oss.tan8.com/yuepuku/100/50357/50357_prev.jpg?v=1487820191"
+    },
+    {
+      "name": "Rise6",
+      "src": "/mp/4.mp3",
+      "img": "http://img4.imgtn.bdimg.com/it/u=88801519,1533084710&fm=214&gp=0.jpg"
+    },
+    {
+      "name": "Rise4",
+      "src": "/mp/5.mp3",
+      "img": "http://oss.tan8.com/yuepuku/100/50357/50357_prev.jpg?v=1487820191"
+    }
+  ]
+}

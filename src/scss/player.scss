@@ -1,0 +1,396 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+#player{
+  position: relative;
+  display: flex;
+  width:100%;
+  padding: 50px;
+  background: #343434;
+  #cover, #list{
+    position: relative;
+    width:50%;
+    float: left;
+    padding:1%;
+    height: inherit;
+    color: #f5f5f5;
+  }
+  #cover{
+    
+  }
+  #song{
+
+  }
+}
+//<!-- J Player -->
+
+.jp-jplayer {
+  user-select: none;
+}
+
+@media (max-width: 630px) {
+  .jp-jplayer .jp-state-full-screen .jp-poster {
+    height: auto;
+  }
+}
+
+.jp-hidden {
+  display: none;
+}
+
+.jp-state-no-volume-support {
+  .jp-mute, .jp-volume-bar, .jp-volume-bar-value {
+    display: none;
+  }
+}
+
+.jp-jplayer.jp-state-full-screen {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  visibility: visible;
+  position: fixed;
+  .jp-gui {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .jp-poster {
+      max-width: 100%;
+      z-index: -1;
+      margin: 0 auto;
+      position: fixed;
+      display: inline-block;
+    }
+  }
+}
+
+.jp-state-audio.jp-jplayer.jp-state-full-screen .jp-media, .jp-state-video.jp-jplayer.jp-state-full-screen .jp-media {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.jp-state-audio.jp-jplayer.jp-state-full-screen .jp-media video, .jp-state-video.jp-jplayer.jp-state-full-screen .jp-media video {
+  width: 100%;
+}
+
+.jp-sleek {
+  font-family: "Source Sans Pro", sans-serif;
+  width:100%;
+}
+
+.jp-state-video {
+  &:not(.jp-state-idle).jp-sleek .jp-poster, &.jp-state-playing.jp-sleek .jp-poster {
+    display: none;
+  }
+  &.jp-sleek .jp-media {
+    position: relative;
+    .jp-poster {
+      max-height: 100%;
+      max-width: 100%;
+    }
+    overflow: hidden;
+    display: table;
+    margin: 0 auto;
+    video {
+      display: block;
+    }
+    .jp-poster {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.jp-sleek .jp-gui {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  background-color: #e5e5e5;
+}
+
+:not(.jp-state-full-screen).jp-sleek .jp-gui {
+  z-index: 100;
+}
+
+.jp-state-no-browser-support.jp-sleek .jp-gui {
+  height: auto;
+  .jp-controls {
+    display: none;
+  }
+}
+
+.jp-sleek .jp-gui {
+  .jp-no-browser-support {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 4px;
+    h4 {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 6px;
+    }
+  }
+  .jp-controls {
+    height: inherit;
+    position: relative;
+    font-size: 24px;
+    white-space: nowrap;
+    display: table;
+    border-spacing: 5px 0;
+    margin: 0 auto;
+    button {
+      font-size: inherit;
+    }
+    .jp-title-container {
+      font-size: 12px;
+      .jp-title {
+        font-weight: bold;
+        max-width: 230px;
+        min-width: 230px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.jp-state-audio.jp-sleek .jp-gui .jp-controls .jp-title-container {
+  .jp-title {
+    margin-left: 10px;
+  }
+  .jp-poster {
+    max-height: 100%;
+    height: 100%;
+  }
+}
+
+.jp-sleek .jp-gui .jp-controls {
+  > * {
+    vertical-align: middle;
+    height: inherit;
+    display: table-cell;
+  }
+  .jp-repeat {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  .jp-progress {
+    background-color: #069baa;
+    width: 500px;
+    min-width: 180px;
+    max-width: 500px;
+    font-size: 20px;
+    position: relative;
+    .jp-duration {
+      right: 0;
+      position: absolute;
+    }
+    .jp-seek-bar {
+      cursor: pointer;
+      height: 100%;
+      .jp-play-bar {
+        background-color: #a92eaa;
+        height: 100%;
+        position: absolute;
+      }
+      .jp-buffer-bar {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        display: block;
+      }
+    }
+  }
+  .jp-volume-container {
+    min-width: 42px;
+    position: relative;
+    &:hover .jp-volume-slider .jp-volume-bar-container {
+      height: 100px;
+      transition-duration: 0.3s;
+      outline: solid 1px #cfcfcf;
+      .jp-volume-bar {
+        display: block;
+        bottom: 10%;
+      }
+    }
+    .jp-mute {
+      height: inherit;
+    }
+  }
+}
+
+.jp-state-no-volume-support.jp-sleek .jp-gui .jp-controls .jp-volume-container {
+  display: none;
+}
+
+.jp-sleek .jp-gui .jp-controls .jp-volume-container .jp-volume-slider {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  .jp-volume-bar-container {
+    background-color: #e5e5e5;
+    position: absolute;
+    height: 0;
+    width: 24px;
+    left: 8px;
+    bottom: 100%;
+    transition-duration: 0.3s;
+    .jp-volume-bar {
+      background-color: #aaa;
+      cursor: pointer;
+      border-radius: 1px;
+      display: none;
+      transform: translateX(-50%) rotate(180deg);
+      width: 8px;
+      height: 80px;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      .jp-volume-bar-value {
+        background-color: #65aa41;
+        border-radius: inherit;
+      }
+    }
+  }
+}
+
+.jp-icon-controls {
+  button {
+    &:focus {
+      outline: none;
+    }
+    border: none;
+    background-color: transparent;
+  }
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    min-width: 42px;
+  }
+}
+
+.jp-jplayer {
+  .jp-icon-controls .jp-play i:before {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "play_arrow";
+  }
+  .jp-icon-controls .jp-repeat i:before {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "repeat";
+  }
+  &.jp-state-playing .jp-icon-controls .jp-play i:before {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "pause";
+  }
+  &.jp-state-muted .jp-icon-controls .jp-mute i:before {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "volume_mute";
+  }
+  &.jp-state-volume-low .jp-icon-controls .jp-mute i:before {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "volume_down";
+  }
+  &.jp-state-volume-high .jp-icon-controls .jp-mute i:before {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "volume_up";
+  }
+  & a#AudioPlayer:after {
+    font-family: "Material Icons";
+    font-style: normal;
+    content: "file_download";
+  }
+  .playlistContainer{
+    position: relative;
+    display: inline-block;
+    width:100%;
+    height:auto;
+    color: #eeeeee;
+    padding: 2%;
+    background: #1e1e1e;
+    .nowPlaying, .jp-playlist-container{
+      width:40%;
+      float: left;
+    }
+    .nowPlaying{
+      position: relative;
+      .jp-poster{
+        width: 200px;
+        float: left;
+      }
+      .jp-title{
+        float: left;
+        padding: 5% 0;
+      }
+    }
+    .jp-playlist-container{
+      ul{
+        list-style: none;
+        li{
+          button {
+            position: relative;
+            padding: 2%;
+            overflow: hidden;
+            border-width: 0;
+            outline: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+            background-color: #2ecc71;
+            color: #ecf0f1;
+            transition: background-color .3s;
+            &.jp-media-link{
+              width:80%;
+            }
+            &:hover, &:focus {
+              background-color: #27ae60;
+            }
+            > * {
+              position: relative;
+            }
+            div {
+              display: block;
+              //padding: 12px 24px;
+
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              display: block;
+              width: 0;
+              padding-top: 0;
+              border-radius: 100%;
+              background-color: rgba(236, 240, 241, 0.3);
+              -webkit-transform: translate(-50%, -50%);
+              -moz-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              -o-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+            }
+            &:active:before {
+              width: 120%;
+              padding-top: 120%;
+              transition: width .2s ease-out, padding-top .2s ease-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}

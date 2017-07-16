@@ -1,0 +1,32 @@
+.videos .videoWrapper, .videos .adLong {
+  position: relative;
+  float: left; }
+
+.videos .videoWrapper {
+  width: 80%;
+  padding: 10px; }
+  .videos .videoWrapper h2 {
+    padding: 2%;
+    text-align: center; }
+  .videos .videoWrapper .videoList {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0; }
+    .videos .videoWrapper .videoList .videoContainer {
+      width: 320px;
+      float: left; }
+    .videos .videoWrapper .videoList .videoDescription {
+      width: calc( 100% - 320px);
+      float: left;
+      padding: 20px 2%; }
+      .videos .videoWrapper .videoList .videoDescription h3 {
+        margin-bottom: 5%; }
+      .videos .videoWrapper .videoList .videoDescription p {
+        line-height: 2;
+        font-size: 20px; }
+
+.videos .adLong {
+  width: 20%;
+  background: rgba(240, 0, 30, 0.25);
+  height: 800px; }
