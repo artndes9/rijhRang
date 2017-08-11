@@ -1,32 +1,49 @@
-.videos .videoWrapper, .videos .adLong {
-  position: relative;
-  float: left; }
-
 .videos .videoWrapper {
-  width: 80%;
-  padding: 10px; }
+  position: relative;
+  float: left;
+  background: #424242;
+  color: #eeeeee; }
   .videos .videoWrapper h2 {
     padding: 2%;
     text-align: center; }
-  .videos .videoWrapper .videoList {
+  .videos .videoWrapper .videoItem {
     position: relative;
-    display: inline-block;
-    width: 100%;
-    padding: 10px 0; }
-    .videos .videoWrapper .videoList .videoContainer {
-      width: 320px;
-      float: left; }
-    .videos .videoWrapper .videoList .videoDescription {
-      width: calc( 100% - 320px);
-      float: left;
-      padding: 20px 2%; }
-      .videos .videoWrapper .videoList .videoDescription h3 {
-        margin-bottom: 5%; }
-      .videos .videoWrapper .videoList .videoDescription p {
-        line-height: 2;
-        font-size: 20px; }
+    padding: 10px;
+    color: #E0E0E0;
+    transition: 1s ease all; }
+    .videos .videoWrapper .videoItem:nth-child(even) {
+      background: #616161; }
+    .videos .videoWrapper .videoItem:nth-child(odd) {
+      background: #757575; }
+    .videos .videoWrapper .videoItem:hover {
+      background: #212121;
+      color: rgba(37, 193, 26, 0.67); }
+    .videos .videoWrapper .videoItem a {
+      color: inherit; }
+      .videos .videoWrapper .videoItem a .videoList {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: 10px 0; }
+        .videos .videoWrapper .videoItem a .videoList .videoContainer img {
+          width: 100%; }
+        .videos .videoWrapper .videoItem a .videoList .videoDescription {
+          padding: 0 2%;
+          height: 8rem; }
+          .videos .videoWrapper .videoItem a .videoList .videoDescription h3 {
+            margin-bottom: 5%; }
+          .videos .videoWrapper .videoItem a .videoList .videoDescription p {
+            line-height: 2;
+            font-size: 20px; }
+
+.videos .texAd, .videos .adLong {
+  margin-top: 50px;
+  float: none;
+  width: 100%;
+  min-height: 200px;
+  background: rgba(52, 234, 131, 0.25); }
 
 .videos .adLong {
-  width: 20%;
+  margin-top: 200px;
   background: rgba(240, 0, 30, 0.25);
   height: 800px; }

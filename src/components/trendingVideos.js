@@ -67,6 +67,7 @@ class Trending extends Component {
     };
 
     render() {
+        let self = this;
 
         const options = {
             items: 5,
@@ -74,48 +75,56 @@ class Trending extends Component {
             rewind: true,
             margin:5,
             slideBy:5,
-            autoplay: false
+            autoplay: false,
+            responsive:{
+                0:{
+                    items:1,
+                    slideBy:1
+                },
+                600:{
+                    items:3,
+                    slideBy:3
+                },
+                1000:{
+                    items:5,
+                    slideBy:5
+                }
+            }
         };
 
-        const events = {
-            // onDragged: function(event) {...},
-            // onChanged: function(event) {...}
-        };
+        const trendingList = this.state.list.map((video) =>
+                <div key={video.etag} onClick={() => self.openModal(video)}>
+                    <a>
+                        <div className="videoList">
+                            <div className="videoContainer">
+                                <img src={ video.snippet.thumbnails.medium.url } alt=""/>
+                            </div>
+                            <div className="videoDescription">
+                                <h3 className="wrapTitle">{ video.snippet.title }</h3>
+                                <p className="wrapText">{video.snippet.description}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            );
         // const opts = {
         //     playerVars: { // https://developers.google.com/youtube/player_parameters
         //         autoplay: 1
         //     }
         // };
 
-        let self = this;
         return (
-            <div className="trendingVideos">
+            <div ref="trend" className="trendingVideos">
                 {/*<iframe width="560" height="315" src="https://www.youtube.com/embed/AAPVmY8FLlM?autoplay=1" frameborder="0" allowfullscreen>*/}
                 {/*</iframe>*/}
                 <h2>Trending Videos</h2>
-                <OwlCarousel ref="slides" options={options} events={events} >
-                    {this.state.list.map(function (video) {
-                        return(
-                            <div key={video.etag} onClick={() => self.openModal(video)}>
-                                <a>
-                                    <div className="videoList">
-                                        <div className="videoContainer">
-                                            <img src={ video.snippet.thumbnails.medium.url } alt=""/>
-                                        </div>
-                                        <div className="videoDescription">
-                                            <h3 className="wrapTitle">{ video.snippet.title }</h3>
-                                            <p className="wrapText">{video.snippet.description}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        )
-                    })}
+                <OwlCarousel ref="slides" options={options} >
+                    {trendingList}
                 </OwlCarousel>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
-                    contentLabel="Example Modal" >
+                    contentLabel="Video player" >
                     <button onClick={this.closeModal}>close</button>
                     <YouTube
                         name={this.state.link}

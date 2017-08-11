@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 // import { createStore, combineReducers } from 'redux';
 // import { initialState as jPlayerInitialState, reducer as jPlayers } from 'react-jplayer';
 // import { initialState as jPlaylistInitialState, reducer as jPlaylists } from 'react-jplaylist';
+import { Row, Col} from 'react-bootstrap';
 import HomeVideos from './videosHome';
 import Trending from './trendingVideos';
 import Footer from './footer';
@@ -24,25 +25,50 @@ import OwlCarousel from 'react-owl-carousel2';
 //     jPlaylists: jPlaylistInitialState(AudioPlayer),
 // },window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 class Body extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            videoList: []
+        };
+    }
+
+    latestVideo = (dataFromHomeVideos) => {
+        this.setState({
+            videoList: dataFromHomeVideos
+        });
+        console.log(this.state.videoList);
+    };
+
     render() {
         const options = {
             items: 1,
             nav: false,
             rewind: true,
-            autoplay: true
+            autoplay: true,
         };
 
         const events = {
             // onDragged: function(event) {...},
             // onChanged: function(event) {...}
         };
+        const latestList = this.state.videoList.map((video) =>
+            <div key={video.etag}  className="Slide">
+                {/*<a onClick={() => self.openModal(video)}>*/}
+                <div className="videoDetail col-md-6">
+                    <h1>{ video.snippet.title }</h1>
+                    <h3>{ video.snippet.description }</h3>
+                </div>
+                <div className="videoContainer col-md-6">
+                    <img src={ video.snippet.thumbnails.high.url } alt=""/>
+                </div>
+                {/*</a>*/}
+            </div>
+        );
         return (
             <div className="body">
                 <div className="homeSlider">
                     <OwlCarousel ref="slides" options={options} events={events} >
-                        <div><img src="http://placehold.it/1920x500" alt="1"/></div>
-                        <div><img src="http://placehold.it/1920x500" alt="2"/></div>
-                        <div><img src="http://placehold.it/1920x500" alt="3"/></div>
+                        {latestList}
                     </OwlCarousel>
                 </div>
                 <div className="adSmall">
@@ -58,7 +84,13 @@ class Body extends Component {
                         {/*<AudioPlayer />*/}
                     {/*</div>*/}
                 {/*</Provider>*/}
-                <HomeVideos />
+                <Row>
+                    <Col md={12}>
+                        <HomeVideos
+                            fetchList={this.latestVideo.bind(this)}
+                        />
+                    </Col>
+                </Row>
                 <div className="adSmall">
                     <span>Ad Small</span>
                 </div>

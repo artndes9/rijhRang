@@ -1,40 +1,19 @@
-.App-header {
+nav.navbar {
   background-color: #222;
-  height: 80px;
-  color: white;
-  .brand{
-    float: left;
-    height:inherit;
-    padding: 10px;
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-      height: 50px;
-    }
+  border-radius: 0;
+  margin-bottom: 0;
+  .navbar-brand{
   }
-  .App-links{
-    float: right;
-    ul{
-      list-style-type: none;
-      height: 80px;
-      width:100%;
-      margin: 0;
-      padding: 0;
+  .navbar-collapse{
+    //float: right;
+    ul.nav.navbar-nav{
       li{
-        display: inline;
-        float: left;
-        height:inherit;
-        a{
-          display: block;
-          color: white;
-          font-size: 20px;
-          text-align: center;
-          padding: 25px 18px;
-          text-decoration: none;
+        &.active{
+          a{
+            background: #65d331;
+            color: #222222;
+          }
         }
-      }
-      li.active{
-        background: #65d331;
-        color: #222222;
       }
     }
   }
