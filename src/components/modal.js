@@ -5,7 +5,7 @@ import YouTube from 'react-youtube';
 // const videoIdB = '-DX3vJiqxm4';
 let timestamp = 6;
 let timer;
-let done = false;
+let done = true;
 
 class YTModal extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class YTModal extends Component {
             player: event.target,
             time: event.target.getCurrentTime(),
         });
-        done = false;
+        done = true;
     }
 
     onPlayVideo() {

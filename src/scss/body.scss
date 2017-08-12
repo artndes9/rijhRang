@@ -15,6 +15,10 @@ body{
       width:100%;
       .owl-stage-outer{
         width: 100%;
+        .slide{
+          padding: 26px;
+          text-align: center;
+        }
       }
     }
   }
@@ -35,6 +39,9 @@ body{
       text-align: center;
       padding-bottom: 18px;
     }
+  }
+  div.trendingVideos{
+    text-align: center;
   }
   div.playlist{
     padding: 5%;
@@ -87,7 +94,7 @@ body{
   }
 }
 
-.youtubeVideo iframe, .youtubeVideo object,
+.youtubeVideo iframe, .youtubeVideo object, iframe,
 .youtubeVideo embed {
   width: 100%;
 }

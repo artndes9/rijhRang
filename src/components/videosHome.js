@@ -64,13 +64,13 @@ class HomeVideos extends Component {
         return (
         <div ref="video" className="videos">
             <Row>
-                <Col md={10} className="videoWrapper">
+                <Col md={10} xs={12} className="videoWrapper">
                     <h2>Latest Videos</h2>
                         <Row>
                             {videoList}
                         </Row>
                 </Col>
-                <Col md={2}>
+                <Col md={2} xs={12}>
                     <div className="adLong">Ad Long</div>
                     <div className="texAd">Text Ads</div>
                 </Col>

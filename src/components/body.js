@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import { Row, Col} from 'react-bootstrap';
 import HomeVideos from './videosHome';
 import Trending from './trendingVideos';
+import YouTube from 'react-youtube';
 import Footer from './footer';
 
 
@@ -43,25 +44,30 @@ class Body extends Component {
         const options = {
             items: 1,
             nav: false,
-            rewind: true,
-            autoplay: true,
+            rewind: true
         };
 
         const events = {
             // onDragged: function(event) {...},
             // onChanged: function(event) {...}
         };
+        const opts = {
+            playerVars: { // https://developers.google.com/youtube/player_parameters
+                autoplay: 0
+            }
+        };
         const latestList = this.state.videoList.map((video) =>
-            <div key={video.etag}  className="Slide">
-                {/*<a onClick={() => self.openModal(video)}>*/}
+            <div key={video.etag} className="slide">
+                <div className="videoContainer col-md-6">
+                    <YouTube
+                        videoId={video.id.videoId}
+                        opts={opts}
+                    />
+                </div>
                 <div className="videoDetail col-md-6">
                     <h1>{ video.snippet.title }</h1>
                     <h3>{ video.snippet.description }</h3>
                 </div>
-                <div className="videoContainer col-md-6">
-                    <img src={ video.snippet.thumbnails.high.url } alt=""/>
-                </div>
-                {/*</a>*/}
             </div>
         );
         return (

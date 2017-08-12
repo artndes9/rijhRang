@@ -4,7 +4,6 @@ import OwlCarousel from 'react-owl-carousel2';
 import '../scss/owl.theme.default.css';
 import Modal from 'react-modal';
 import YouTube from './modal';
-// import YouTube from 'react-youtube';
 
 Modal.defaultStyles = {...Modal.defaultStyles, ...{
     overlay : {
@@ -45,7 +44,9 @@ class Trending extends Component {
     }
 
     openModal(video) {
-        this.setState({modalIsOpen: true,originalBodyOverflow: document.body.style.overflow, link: video.id});
+        this.setState({
+            modalIsOpen: true,
+            originalBodyOverflow: document.body.style.overflow, link: video.id});
         document.body.style.overflow = 'hidden';
     }
 
@@ -79,6 +80,7 @@ class Trending extends Component {
             responsive:{
                 0:{
                     items:1,
+                    dots: false,
                     slideBy:1
                 },
                 600:{

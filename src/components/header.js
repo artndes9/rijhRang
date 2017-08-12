@@ -20,7 +20,7 @@ class Header extends Component {
                     <Navbar.Collapse>
                         <Nav pullRight>
                             <LinkContainer exact to="/" activeClassName="active" ><NavItem>Home</NavItem></LinkContainer >
-                            <LinkContainer to="/privacy"><NavItem>Wallpaper</NavItem></LinkContainer >
+                            <LinkContainer to="/photography"><NavItem>Photography</NavItem></LinkContainer >
                             <LinkContainer to="/music"><NavItem>Music</NavItem></LinkContainer >
                             <LinkContainer to="/videos"><NavItem >Videos</NavItem></LinkContainer >
                             {/*<LinkContainer ><NavItem to="/android">Android</NavItem></LinkContainer >*/}
