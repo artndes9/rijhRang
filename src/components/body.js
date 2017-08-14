@@ -10,6 +10,7 @@ import { Row, Col} from 'react-bootstrap';
 import HomeVideos from './videosHome';
 import Trending from './trendingVideos';
 import YouTube from 'react-youtube';
+// import AdSense from 'react-adsense';
 import Footer from './footer';
 
 
@@ -70,6 +71,7 @@ class Body extends Component {
                 </div>
             </div>
         );
+
         return (
             <div className="body">
                 <div className="homeSlider">
@@ -78,11 +80,18 @@ class Body extends Component {
                     </OwlCarousel>
                 </div>
                 <div className="adSmall">
-                    <span>Ad Small</span>
+                    {/*<AdSense.Google client='ca-pub-9109562110699707'*/}
+                                    {/*slot='5051505922'*/}
+                                    {/*style={{width: 728, height: 90}}*/}
+                                    {/*format='' />*/}
                 </div>
                 <div className="about">
                     <h1>Rijh Rang Entertainment</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam asperiores delectus deserunt dolore doloremque error ex, explicabo, id impedit incidunt inventore ipsum laborum nihil nobis pariatur quae repellat sapiente!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dignissimos dolor ipsam magni nemo quas voluptatibus? Esse ipsam porro repudiandae veniam voluptate! Consectetur dignissimos ipsum nobis odit, quibusdam temporibus voluptas?</p>
+                    <p>Rijh rang is an entertainment platform providing latest entertainment from all around the country as well as keeping you up to date with our latest music and video releases.
+                        Here you can find the latest releases from our official nagpuri YouTube channel rijh Rang and also get the latest music releases as soon as they are launched.
+                        Subscribe to our YouTube channel and bookmark this website to get all the latest updates.
+                    </p>
+                    <h4>Subscribe us on &nbsp; <div className="g-ytsubscribe" data-channelid="UC8v7ZGa8Xr50o2gCN_EWJIg"></div></h4>
                 </div>
                 <Trending />
                 {/*<Provider store={store}>*/}

@@ -16,8 +16,7 @@ class Footer extends Component {
                 <hr/>
                 <div className="policies">
                     <span><NavLink to="privacy">Privacy Policy</NavLink></span>
-                    <span><a href="#">Disclaimer</a></span>
-                    <span><a href="#">Terms of Usage</a></span>
+                    <span><NavLink to="terms">Terms of Usage & Disclaimer</NavLink></span>
                 </div>
             </div>
         );

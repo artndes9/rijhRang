@@ -117,9 +117,7 @@ class Trending extends Component {
 
         return (
             <div ref="trend" className="trendingVideos">
-                {/*<iframe width="560" height="315" src="https://www.youtube.com/embed/AAPVmY8FLlM?autoplay=1" frameborder="0" allowfullscreen>*/}
-                {/*</iframe>*/}
-                <h2>Trending Videos</h2>
+                <h2>Trending Videos from YouTube</h2>
                 <OwlCarousel ref="slides" options={options} >
                     {trendingList}
                 </OwlCarousel>

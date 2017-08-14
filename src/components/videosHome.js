@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Row, Col} from 'react-bootstrap';
 import Modal from 'react-modal';
 import YouTube from './modal';
+// import AdSense from 'react-adsense';
 import '../scss/video.css';
 
 
@@ -71,8 +72,16 @@ class HomeVideos extends Component {
                         </Row>
                 </Col>
                 <Col md={2} xs={12}>
-                    <div className="adLong">Ad Long</div>
-                    <div className="texAd">Text Ads</div>
+                    <div className="adLong">
+                        {/*<AdSense.Google client='ca-pub-9109562110699707'*/}
+                                        {/*slot='6468706981'*/}
+                                        {/*style={{width: 300, height: 600}}*/}
+                                        {/*format='' />*/}
+                    </div>
+                    <div className="texAd">
+                        {/*<AdSense.Google client='ca-pub-9109562110699707'*/}
+                                        {/*slot='5051505922' />*/}
+                    </div>
                 </Col>
             </Row>
             <Modal

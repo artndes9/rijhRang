@@ -25,16 +25,12 @@ body{
   div.adSmall{
     width:100%;
     clear: both;
-    height: 100px;
-    padding:2%;
+    max-height: 100px;
     text-align: center;
-    span{
-      padding: 14px 125px;
-      background: #ff2100;
-    }
   }
   div.about{
-    padding:0 5%;
+    clear: both;
+    padding:0 25%;
     h1{
       text-align: center;
       padding-bottom: 18px;
