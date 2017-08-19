@@ -2,10 +2,10 @@
  * Created by the, rogue Pixxel on 05/25/2017.
  */
 import React, { Component } from 'react';
-// import { Provider } from 'react-redux';
-// import { createStore, combineReducers } from 'redux';
-// import { initialState as jPlayerInitialState, reducer as jPlayers } from 'react-jplayer';
-// import { initialState as jPlaylistInitialState, reducer as jPlaylists } from 'react-jplaylist';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+import { initialState as jPlayerInitialState, reducer as jPlayers } from 'react-jplayer';
+import { initialState as jPlaylistInitialState, reducer as jPlaylists } from 'react-jplaylist';
 import { Row, Col} from 'react-bootstrap';
 import HomeVideos from './videosHome';
 import Trending from './trendingVideos';
@@ -13,19 +13,19 @@ import YouTube from 'react-youtube';
 // import AdSense from 'react-adsense';
 import Footer from './footer';
 
-
 import '../scss/body.css';
-// import AudioPlayer from './player'
+import AudioPlayer from './player'
 // import $ from 'jquery';
 import OwlCarousel from 'react-owl-carousel2';
 
-// const store = createStore(combineReducers({
-//     jPlayers,
-//     jPlaylists,
-// }), {
-//     jPlayers: jPlayerInitialState(AudioPlayer),
-//     jPlaylists: jPlaylistInitialState(AudioPlayer),
-// },window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(combineReducers({
+    jPlayers,
+    jPlaylists,
+}), {
+    jPlayers: jPlayerInitialState(AudioPlayer),
+    jPlaylists: jPlaylistInitialState(AudioPlayer),
+},window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 class Body extends Component {
     constructor(props) {
         super(props);
@@ -59,6 +59,9 @@ class Body extends Component {
         };
         const latestList = this.state.videoList.map((video) =>
             <div key={video.etag} className="slide">
+                <div className="bgThumb" style={{"backgroundImage" : "url( "+ video.snippet.thumbnails.high.url +" )"}}>
+                </div>
+                <h2>Just In ....</h2>
                 <div className="videoContainer col-md-6">
                     <YouTube
                         videoId={video.id.videoId}
@@ -94,11 +97,6 @@ class Body extends Component {
                     <h4>Subscribe us on &nbsp; <div className="g-ytsubscribe" data-channelid="UC8v7ZGa8Xr50o2gCN_EWJIg"></div></h4>
                 </div>
                 <Trending />
-                {/*<Provider store={store}>*/}
-                    {/*<div className="playlist">*/}
-                        {/*<AudioPlayer />*/}
-                    {/*</div>*/}
-                {/*</Provider>*/}
                 <Row>
                     <Col md={12}>
                         <HomeVideos
@@ -109,6 +107,15 @@ class Body extends Component {
                 <div className="adSmall">
                     <span>Ad Small</span>
                 </div>
+                <Row>
+                    <Col md={12}>
+                        <Provider store={store}>
+                            <div className="playlist">
+                                <AudioPlayer />
+                            </div>
+                        </Provider>
+                    </Col>
+                </Row>
                 <Footer/>
             </div>
         );

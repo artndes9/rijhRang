@@ -4,7 +4,7 @@ import { Gui, SeekBar, BufferBar,
     VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
 } from 'react-jplayer';
 import JPlaylist, { connect, Playlist, Shuffle, Next, Previous, Repeat,
-     Remove, MediaLink, Title as PlaylistTitle } from 'react-jplaylist';
+        MediaLink, Title as PlaylistTitle } from 'react-jplaylist';
 import '../scss/player.css';
 import ArtistTitle from "./artistTitle";
 
@@ -20,7 +20,7 @@ const jPlaylistOptions = {
             title: 'Bubble',
             artist: 'Miaow',
             sources: {
-                m4a: 'mp/1.m4a',
+                m4a: './mp/1.m4a',
                 oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
             },
             poster: 'http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png',
@@ -30,7 +30,7 @@ const jPlaylistOptions = {
             title: 'Tempered Song',
             artist: 'Miaow',
             sources: {
-                mp3: 'http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3',
+                mp3: '../mp/2.mp3',
                 oga: 'http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg',
             },
             poster: 'http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png',
@@ -40,7 +40,7 @@ const jPlaylistOptions = {
             title: 'Cro Magnon Man',
             artist: 'The Stark Palace',
             sources: {
-                mp3: 'http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3',
+                mp3: '../mp/3.mp3',
                 oga: 'http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg',
             },
             poster: 'http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png',
@@ -54,6 +54,10 @@ const AudioPlaylist = () => (
     <JPlaylist className="jp-sleek">
         <Audio />
         <Gui>
+            <div className="jp-title-container">
+                <Poster />
+                <Title />
+            </div>
             <div className="jp-controls jp-icon-controls">
                 <Previous><i className="fa fa-step-backward" /></Previous>
                 <Play><i className="fa">{/* Icon set in css*/}</i></Play>
@@ -82,10 +86,6 @@ const AudioPlaylist = () => (
                     </div>
                 </div>
                 <Download><i className="fa fa-download" /></Download>
-                <div className="jp-title-container">
-                    <Poster />
-                    <Title />
-                </div>
             </div>
             <BrowserUnsupported />
         </Gui>
@@ -96,7 +96,6 @@ const AudioPlaylist = () => (
             </div>
             <div className="jp-playlist-container">
                 <Playlist>
-                    <Remove />
                     <MediaLink>
                         <PlaylistTitle />
                     </MediaLink>

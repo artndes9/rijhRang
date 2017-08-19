@@ -15,8 +15,16 @@ body {
       .body .homeSlider .owl-carousel.owl-theme.owl-loaded.owl-drag .owl-stage-outer {
         width: 100%; }
         .body .homeSlider .owl-carousel.owl-theme.owl-loaded.owl-drag .owl-stage-outer .slide {
-          padding: 26px;
           text-align: center; }
+          .body .homeSlider .owl-carousel.owl-theme.owl-loaded.owl-drag .owl-stage-outer .slide .bgThumb {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            top: 0;
+            filter: blur(20px);
+            z-index: -1; }
   .body div.adSmall {
     width: 100%;
     clear: both;

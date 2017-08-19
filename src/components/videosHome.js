@@ -36,7 +36,7 @@ class HomeVideos extends Component {
         let _this = this;
         this.serverRequest =
             Axios
-                .get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyA9iMEljwboo9zpc4da-vid_q1s6-WmgfE&channelId=UC8v7ZGa8Xr50o2gCN_EWJIg&part=snippet,id&type=video&order=date&maxResults=50")
+                .get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyA9iMEljwboo9zpc4da-vid_q1s6-WmgfE&channelId=UC8v7ZGa8Xr50o2gCN_EWJIg&part=snippet,id&type=video&order=date&maxResults=6")
                 .then(function(result) {
                     _this.setState({
                         list: result.data.items
