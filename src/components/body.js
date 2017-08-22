@@ -38,7 +38,6 @@ class Body extends Component {
         this.setState({
             videoList: dataFromHomeVideos
         });
-        console.log(this.state.videoList);
     };
 
     render() {
@@ -58,15 +57,17 @@ class Body extends Component {
             }
         };
         const latestList = this.state.videoList.map((video) =>
-            <div key={video.etag} className="slide">
+            <div key={video.etag} className="slide clearfix">
                 <div className="bgThumb" style={{"backgroundImage" : "url( "+ video.snippet.thumbnails.high.url +" )"}}>
                 </div>
                 <h2>Just In ....</h2>
                 <div className="videoContainer col-md-6">
-                    <YouTube
-                        videoId={video.id.videoId}
-                        opts={opts}
-                    />
+                    <div className="video-container">
+                        <YouTube
+                            videoId={video.id.videoId}
+                            opts={opts}
+                        />
+                    </div>
                 </div>
                 <div className="videoDetail col-md-6">
                     <h1>{ video.snippet.title }</h1>
@@ -78,9 +79,7 @@ class Body extends Component {
         return (
             <div className="body">
                 <div className="homeSlider">
-                    <OwlCarousel ref="slides" options={options} events={events} >
                         {latestList}
-                    </OwlCarousel>
                 </div>
                 <div className="adSmall">
                     {/*<AdSense.Google client='ca-pub-9109562110699707'*/}

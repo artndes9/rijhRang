@@ -11,27 +11,32 @@ body{
     position: relative;
     width:100%;
     //height: 500px;
-    .owl-carousel.owl-theme.owl-loaded.owl-drag{
-      width:100%;
-      .owl-stage-outer{
+    .slide{
+      text-align: center;
+      .bgThumb {
+        position: absolute;
         width: 100%;
-        .slide{
-          text-align: center;
-          .bgThumb {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-position: center;
-            background-size: cover;
-            top: 0;
-            filter: blur(20px);
-            z-index: -1;
-          }
-          .videoContainer{
-          }
-          .videoDetail{
-          }
-        }
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        top: 0;
+        filter: blur(20px);
+        z-index: -1;
+      }
+      //.videoContainer{
+      //  width:40%;
+      //  margin:auto;
+      //  @media (max-width: 1023px) {
+      //    width:50%;
+      //  }
+      //  @media (max-width: 767px) {
+      //    width:60%;
+      //  }
+      //  @media (max-width: 639px) {
+      //    width:100%;
+      //  }
+      //}
+      .videoDetail{
       }
     }
   }
@@ -103,7 +108,22 @@ body{
   }
 }
 
-.youtubeVideo iframe, .youtubeVideo object, iframe,
+.youtubeVideo iframe, .youtubeVideo object,
 .youtubeVideo embed {
   width: 100%;
+}
+.video-container {
+  position:relative;
+  padding-bottom:56.25%;
+  padding-top:30px;
+  height:0;
+  overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }

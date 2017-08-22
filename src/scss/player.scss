@@ -74,7 +74,7 @@
 }
 
 .jp-sleek {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Roboto', serif;
   width:100%;
 }
 
@@ -101,15 +101,6 @@
       transform: translate(-50%, -50%);
     }
   }
-}
-
-.jp-sleek .jp-gui {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 42px;
-  background-color: #e5e5e5;
 }
 
 :not(.jp-state-full-screen).jp-sleek .jp-gui {
@@ -141,9 +132,10 @@
     position: relative;
     font-size: 24px;
     white-space: nowrap;
+    width:75%;
     display: table;
     border-spacing: 5px 0;
-    margin: 0 auto;
+    float: left;
     button {
       font-size: inherit;
     }
@@ -174,19 +166,12 @@
 
 .jp-sleek .jp-gui .jp-controls {
   > * {
-    vertical-align: middle;
-    height: inherit;
-    display: table-cell;
   }
   .jp-repeat {
-    margin-left: 12px;
-    margin-right: 12px;
   }
   .jp-progress {
-    background-color: #069baa;
-    width: 500px;
+    background-color: #d2d2d2;
     min-width: 180px;
-    max-width: 500px;
     font-size: 20px;
     position: relative;
     .jp-duration {
@@ -195,9 +180,9 @@
     }
     .jp-seek-bar {
       cursor: pointer;
-      height: 100%;
+      height: 2px;
       .jp-play-bar {
-        background-color: #a92eaa;
+        background-color: #25ef20;
         height: 100%;
         position: absolute;
       }
@@ -280,39 +265,50 @@
 }
 
 .jp-jplayer {
-  .jp-icon-controls .jp-play i:before {
-    font-family: "Material Icons";
+  i:before{
+    font-family: 'Material Icons';
     font-style: normal;
-    content: "play_arrow";
+    font-size: 35px;
+    color: inherit;
+  }
+  button{
+    color: #eee;
+    &:hover{
+      color: #C5E1A5;;
+    }
+  }
+  .jp-icon-controls .jp-previous i:before{
+    content: "skip_previous";
+  }
+  .jp-icon-controls .jp-play i:before {
+    content: "play_circle_outline";
+  }
+  .jp-icon-controls .jp-next i:before {
+    content: "skip_next";
   }
   .jp-icon-controls .jp-repeat i:before {
-    font-family: "Material Icons";
-    font-style: normal;
     content: "repeat";
   }
+  .jp-icon-controls .jp-shuffle i:before {
+    content: "shuffle";
+  }
   &.jp-state-playing .jp-icon-controls .jp-play i:before {
-    font-family: "Material Icons";
-    font-style: normal;
-    content: "pause";
+    color: #25ef20;
+    content: "pause_circle_filled";
   }
   &.jp-state-muted .jp-icon-controls .jp-mute i:before {
-    font-family: "Material Icons";
-    font-style: normal;
     content: "volume_mute";
   }
   &.jp-state-volume-low .jp-icon-controls .jp-mute i:before {
-    font-family: "Material Icons";
-    font-style: normal;
     content: "volume_down";
   }
   &.jp-state-volume-high .jp-icon-controls .jp-mute i:before {
-    font-family: "Material Icons";
-    font-style: normal;
     content: "volume_up";
   }
+  &.jp-state-shuffled .jp-icon-controls .jp-shuffle i:before {
+    color: #25ef20;
+  }
   & a#AudioPlayer:after {
-    font-family: "Material Icons";
-    font-style: normal;
     content: "file_download";
   }
   .playlistContainer{
@@ -391,6 +387,74 @@
           }
         }
       }
+    }
+  }
+}
+.jp-gui {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0.80);
+  .jp-title-container{
+    height: 100%;
+    width: 25%;
+    float: left;
+    img.jp-poster{
+      float: left;
+      height: 72px;
+    }
+    .playingDetails{
+      float: left;
+      .songDetails{
+        .songTitle{
+          font-size: 2rem;
+          font-weight: 600;
+        }
+      }
+      .jp-current-time{
+        float: left;
+        &::after{
+          position: relative;
+          content: ' / ';
+        }
+      }
+      .jp-duration{
+        float: left;
+      }
+    }
+  }
+  .jp-controls.jp-icon-controls{
+    .controls-progress{
+      float: left;
+      height:100%;
+      width:75%;
+      .controls {
+        width:100%;
+        text-align: center;
+        button{
+          margin: 0 20px;
+        }
+      }
+      .jp-progress{
+        .jp-seek-bar{
+          height: 2px;
+        }
+      }
+    }
+    .volume-shuffle{
+      width:25%;
+      float: left;
+    }
+    .jp-repeat, .jp-shuffle{
+
+      height: 100%;
+    }
+    .jp-volume-container{
+      float: left;
+      height: 100%;
     }
   }
 }

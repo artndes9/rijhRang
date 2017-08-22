@@ -37,7 +37,7 @@ class Trending extends Component {
         this.state = {
             modalIsOpen: false,
             link: '',
-            list: []
+            list: null
         };
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -94,21 +94,30 @@ class Trending extends Component {
             }
         };
 
-        const trendingList = this.state.list.map((video) =>
-                <div key={video.etag} onClick={() => self.openModal(video)}>
+        let trendingList;
+        if (this.state.list !== null) {
+            console.log("not");
+            trendingList = this.state.list.map((tvideo) =>
+                <div key={tvideo.etag} onClick={() => self.openModal(tvideo)}>
                     <a>
                         <div className="videoList">
                             <div className="videoContainer">
-                                <img src={ video.snippet.thumbnails.medium.url } alt=""/>
+                                <img src={ tvideo.snippet.thumbnails.medium.url } alt=""/>
                             </div>
                             <div className="videoDescription">
-                                <h3 className="wrapTitle">{ video.snippet.title }</h3>
-                                <p className="wrapText">{video.snippet.description}</p>
+                                <h3 className="wrapTitle">{ tvideo.snippet.title }</h3>
+                                <p className="wrapText">{tvideo.snippet.description}</p>
                             </div>
                         </div>
                     </a>
                 </div>
             );
+        } else {
+            console.log("null");
+            trendingList = null
+
+        }
+
         // const opts = {
         //     playerVars: { // https://developers.google.com/youtube/player_parameters
         //         autoplay: 1

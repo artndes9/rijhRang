@@ -33,7 +33,7 @@ const jPlaylistOptions = {
                 mp3: '../mp/2.mp3',
                 oga: 'http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg',
             },
-            poster: 'http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png',
+            poster: 'http://placehold.it/150x90',
             free: true,
         },
         {
@@ -56,36 +56,44 @@ const AudioPlaylist = () => (
         <Gui>
             <div className="jp-title-container">
                 <Poster />
-                <Title />
+                <div className="playingDetails">
+                    <ArtistTitle />
+                    <CurrentTime />
+                    <Duration />
+                </div>
             </div>
             <div className="jp-controls jp-icon-controls">
-                <Previous><i className="fa fa-step-backward" /></Previous>
-                <Play><i className="fa">{/* Icon set in css*/}</i></Play>
-                <Next><i className="fa fa-step-forward" /></Next>
-                <Repeat>
-                    <i className="fa">{/* Icon set in css*/}</i>
-                    {/*<i className="fa fa-repeat" />*/}
-                </Repeat>
-                <Shuffle><i className="fa fa-random" /></Shuffle>
-                <div className="jp-progress">
-                    <SeekBar>
-                        <BufferBar />
-                        <PlayBar />
-                        <CurrentTime />
-                        <Duration />
-                    </SeekBar>
-                </div>
-                <div className="jp-volume-container">
-                    <Mute>
-                        <i className="fa">{/* Icon set in css*/}</i>
-                    </Mute>
-                    <div className="jp-volume-slider">
-                        <div className="jp-volume-bar-container">
-                            <VolumeBar />
-                        </div>
+                <div className="controls-progress">
+                    <div className="controls">
+                        <Previous><i className="fa fa-step-backward" /></Previous>
+                        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+                        <Next><i className="fa fa-step-forward" /></Next>
+                    </div>
+                    <div className="jp-progress">
+                        <SeekBar>
+                            <BufferBar />
+                            <PlayBar />
+                        </SeekBar>
                     </div>
                 </div>
-                <Download><i className="fa fa-download" /></Download>
+                <div className="volume-shuffle">
+                    <div className="jp-volume-container">
+                        <Mute>
+                            <i className="fa">{/* Icon set in css*/}</i>
+                        </Mute>
+                        <div className="jp-volume-slider">
+                            <div className="jp-volume-bar-container">
+                                <VolumeBar />
+                            </div>
+                        </div>
+                    </div>
+                    <Repeat>
+                        <i className="fa">{/* Icon set in css*/}</i>
+                        {/*<i className="fa fa-repeat" />*/}
+                    </Repeat>
+                    <Shuffle><i className="fa"></i></Shuffle>
+                    <Download><i className="fa fa-download" /></Download>
+                </div>
             </div>
             <BrowserUnsupported />
         </Gui>

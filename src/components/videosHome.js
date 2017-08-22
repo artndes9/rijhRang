@@ -30,7 +30,7 @@ class HomeVideos extends Component {
         document.body.style.overflow = this.state.originalBodyOverflow;
     }
     latestVideo(){
-        this.props.fetchList(this.state.list.slice(0, 3));
+        this.props.fetchList(this.state.list.slice(0, 1));
     };
     componentDidMount = () => {
         let _this = this;

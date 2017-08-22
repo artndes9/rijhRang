@@ -27,6 +27,6 @@ const ArtistTitle  = ({ title, artist })  => {
                 </div>
             </div>
         );
-}
+};
 
 export default connectWithId(mapStateToProps)(ArtistTitle);
